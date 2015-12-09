@@ -1,0 +1,69 @@
+buildscript {
+  repositories {
+    mavenCentral()
+    maven {
+      url "http://clojars.org/repo/"
+    }
+  }
+  dependencies {
+    classpath "clojuresque:clojuresque:1.7.0"
+  }
+}
+
+group = "ontheshelf"
+version = "1.0.0_$System.env.BUILD_NUMBER"
+
+apply plugin: "clojure"
+clojure.aotCompile = true
+
+apply plugin: "war"
+
+repositories {
+  mavenCentral()
+  maven {
+    url "http://clojars.org/repo/"
+  }
+}
+
+dependencies {
+  compile "org.clojure:clojure:1.7.0"
+  compile "org.clojure:data.zip:0.1.1"
+  compile "org.clojure:data.xml:0.0.8"
+  compile "org.clojure:data.json:0.2.6"
+  compile "org.clojure:tools.logging:0.3.1"
+  compile "javax.servlet:servlet-api:2.5"
+  compile "compojure:compojure:1.4.0"
+  compile "ring:ring-defaults:0.1.5"
+  compile "ring:ring-core:1.4.0"
+  compile "ring:ring-servlet:1.4.0"
+  compile "ring:ring-devel:1.4.0"
+  compile "ring:ring-json:0.4.0"
+  compile "ring.middleware.logger:ring.middleware.logger:0.5.0"
+  compile "http-kit:http-kit:2.1.19"
+  compile "environ:environ:1.0.1"
+  compile "clj-http:clj-http:2.0.0"
+  compile "hiccup:hiccup:1.0.5"
+  compile "com.novemberain:monger:3.0.1"
+  compile "clj-time:clj-time:0.11.0"
+}
+
+sourceSets {
+  main {
+    clojure {
+      srcDir "src/clj"
+      srcDir "src/gradle"
+    }
+    resources {
+      srcDir "resources"
+    }
+  }
+}
+
+compileClojure {
+  classpath = project.files(classpath, project.sourceSets.main.resources.srcDirs)
+}
+
+war {
+  from 'war'
+  manifest.attributes("Main-Class": "skeleton.web")
+}
