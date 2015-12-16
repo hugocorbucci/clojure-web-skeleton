@@ -11,6 +11,6 @@ if [ ! -f ./bin/gaffer ]; then
 fi
 mkdir -p tmp/db/data
 ps xau | grep livereload | grep -v grep | awk '{print $2}' | xargs kill
-APP_NAME=renamed-skeleton
+APP_NAME=skeleton
 grep "DATABASE_URL" ./.env || echo "DATABASE_URL=mongodb://localhost/${APP_NAME}" >> .env
 ./bin/gaffer start -f Procfile.dev
