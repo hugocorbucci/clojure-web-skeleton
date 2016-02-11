@@ -1,15 +1,16 @@
 (ns skeleton.web
   (:gen-class)
   (:use org.httpkit.server
-    [hiccup.page :only (include-css include-js)])
+    [hiccup.page :only (html5 include-css include-js)])
   (:require
     [ring.middleware.reload :as reload]
-    [compojure.core :refer [defroutes GET PUT POST DELETE ANY context routes]]
+    [compojure.core :refer [defroutes GET PUT POST DELETE ANY context routes wrap-routes]]
     [compojure.route :as route]
     [clj-time.core :as t]
-    [ring.middleware.json :as middleware]
     [hiccup.middleware :as hiccup-middleware]
     [ring.middleware.defaults :refer [wrap-defaults site-defaults api-defaults]]
+    [ring.middleware.json :as json-middleware]
+    [ring.middleware.anti-forgery :as anti-forgery]
     [ring.util.response :refer [response redirect]]
     [clojure.java.io :as io]
     [environ.core :refer [env]]
@@ -31,21 +32,27 @@
 
 (defroutes site-routes
   (GET "/" request
-    (json-response "Hi"))
-  (route/resources "/")
-  (route/not-found (slurp (io/resource "404.html"))))
+    (html5 [:p "Hello World"] (include-js "/js/template.js"))))
 
 (defroutes api-routes
   (context "/api" []
     (context "/v1" []
-      (route/not-found (slurp (io/resource "404.html"))))))
+      ; TODO: Investigate why just {:content...} isn't enough to set content type with wrap-json-response
+      ; Probably due to a weird interaction between wrap-json-response and wrap-content-type
+      (GET "/" request (json-response {:content {:type "success" :message "Hi world"}})))))
 
 (def handler
-  (routes
-    (-> api-routes
-      (middleware/wrap-json-body)
-      (middleware/wrap-json-response))
-    (hiccup-middleware/wrap-base-url site-routes)))
+  (wrap-defaults
+    (routes
+      (-> api-routes
+        (json-middleware/wrap-json-body)
+        (json-middleware/wrap-json-response))
+      (wrap-defaults
+        (-> site-routes
+          (wrap-routes hiccup-middleware/wrap-base-url)
+          (wrap-routes anti-forgery/wrap-anti-forgery))
+        (assoc-in site-defaults [:security :anti-forgery] false)))
+    api-defaults))
 
 (def app
   (if (in-dev?)

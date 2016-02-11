@@ -25,14 +25,15 @@ NEW_FOLDER_NAME=`echo "${NEW_NAME}" | sed -e "s/-/_/"`
 
 BACKUP_EXTENSION=.project-rename-backup
 
-sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/" src/clj/${OLD_NAME}/web.clj
-sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/" test/clj/${OLD_NAME}/test_helper.clj
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" src/clj/${OLD_NAME}/web.clj
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" test/clj/${OLD_NAME}/test_helper.clj
 mv src/clj/${OLD_FOLDER_NAME} src/clj/${NEW_FOLDER_NAME}
 mv test/clj/${OLD_FOLDER_NAME} test/clj/${NEW_FOLDER_NAME}
-sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/" build.gradle
-sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/" dev.sh
-sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/" Procfile
-sed -i ${BACKUP_EXTENSION} -e "s/\/${OLD_FOLDER_NAME}\//\/${NEW_FOLDER_NAME}\//" -e "s/${OLD_NAME}/${NEW_NAME}/" project.clj
-sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/" settings.gradle
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" build.gradle
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" dev.sh
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" Procfile
+sed -i ${BACKUP_EXTENSION} -e "s/\/${OLD_FOLDER_NAME}\//\/${NEW_FOLDER_NAME}\//g" -e "s/${OLD_NAME}/${NEW_NAME}/g" project.clj
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" settings.gradle
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" gradle.properties
 echo "# ${NEW_NAME}\n\nTODO: Describe project" > README.md
 find . -name "*${BACKUP_EXTENSION}" | xargs rm -f

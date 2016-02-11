@@ -7,7 +7,7 @@
   :test-paths ["test/clj"]
   :main skeleton.web
   :aot [skeleton.web]
-  :dependencies [[org.clojure/clojure "1.7.0"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
     [org.clojure/data.zip "0.1.1"]
     [org.clojure/data.xml "0.0.8"]
     [org.clojure/data.json "0.2.6"]
@@ -20,15 +20,16 @@
     [ring/ring-json "0.4.0"]
     [ring.middleware.logger "0.5.0"]
     [http-kit "2.1.19"]
-    [environ "1.0.1"]
+    [environ "1.0.2"]
     [clj-http "2.0.0"]
     [hiccup "1.0.5"]
     [com.novemberain/monger "3.0.1"]
     [clj-time "0.11.0"]]
   :dev-dependencies [[com.jakemccrary/lein-test-refresh "0.11.0"]
     [lein-cloverage "1.0.2"]
-    [clj-livereload "0.2.0"]]
-  :plugins [[lein-environ "1.0.1"]
+    [clj-livereload "0.2.0"]
+    [org.clojure/tools.nrepl "0.2.11"]]
+  :plugins [[lein-environ "1.0.2"]
     [lein-ring "0.9.7"]
     [com.jakemccrary/lein-test-refresh "0.11.0"]]
   :ring {:handler skeleton.web/handler}
@@ -36,20 +37,25 @@
   :uberjar-name "skeleton-standalone.jar"
   :profiles {
     :production
-    {:env {:production true :clj-env :production}}
+    {:env {:production "true" :clj-env "production"}}
     :test
     { :plugins [[lein-cloverage "1.0.2"]
         [lein-dotenv "RELEASE"]]
       :resource-paths ["resources" "test/resources/"]
       :dependencies [[pjstadig/humane-test-output "0.7.1"]]
-      :env {:test true :clj-env :test}
+      :env {:test "true" :clj-env "test"}
       :injections [(require 'pjstadig.humane-test-output)
         (pjstadig.humane-test-output/activate!)]}
     :dev
     { :plugins [[lein-dotenv "RELEASE"]]
-      :env {:development true :clj-env :development}
+      :env {:development "true" :clj-env "development"}
       :resource-paths ["resources"]
       :dependencies [[clj-livereload "0.2.0"]]
       :injections [(require 'clj-livereload.server)
-        (clj-livereload.server/start! {:paths ["resources/public/" "src/clj/skeleton/"] :debug? true})]}}
+        (clj-livereload.server/start! {:paths ["resources/public/" "src/clj/skeleton/"] :debug? true})]}
+    :repl
+    { :plugins [[lein-dotenv "RELEASE"]]
+      :env {:development "true" :clj-env "development"}
+      :dependencies [[org.clojure/tools.nrepl "0.2.11"]]
+      :resource-paths ["resources"]}}
   :test-refresh {:notify-command ["terminal-notifier" "-title" "Skeleton Tests" "-message"]})

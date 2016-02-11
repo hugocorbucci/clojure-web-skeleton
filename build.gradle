@@ -10,9 +10,6 @@ buildscript {
   }
 }
 
-group = "ontheshelf"
-version = "1.0.0_$System.env.BUILD_NUMBER"
-
 apply plugin: "clojure"
 clojure.aotCompile = true
 
@@ -26,7 +23,7 @@ repositories {
 }
 
 dependencies {
-  compile "org.clojure:clojure:1.7.0"
+  compile "org.clojure:clojure:1.8.0"
   compile "org.clojure:data.zip:0.1.1"
   compile "org.clojure:data.xml:0.0.8"
   compile "org.clojure:data.json:0.2.6"
@@ -40,7 +37,7 @@ dependencies {
   compile "ring:ring-json:0.4.0"
   compile "ring.middleware.logger:ring.middleware.logger:0.5.0"
   compile "http-kit:http-kit:2.1.19"
-  compile "environ:environ:1.0.1"
+  compile "environ:environ:1.0.2"
   compile "clj-http:clj-http:2.0.0"
   compile "hiccup:hiccup:1.0.5"
   compile "com.novemberain:monger:3.0.1"
@@ -64,6 +61,6 @@ compileClojure {
 }
 
 war {
+  version = "0.0.1-SNAPSHOT"
   from 'war'
-  manifest.attributes("Main-Class": "skeleton.web")
 }
