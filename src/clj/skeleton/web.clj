@@ -25,11 +25,6 @@
 
 (defn in-dev? [] (env :dev))
 
-(defn json-response [data & [status]]
-  {:status  (or status 200)
-   :headers {"Content-Type" "application/json; charset=utf-8"}
-   :body    data})
-
 (defroutes site-routes
   (GET "/" request
     (html5 [:p "Hello World"] (include-js "/js/template.js"))))
@@ -37,16 +32,14 @@
 (defroutes api-routes
   (context "/api" []
     (context "/v1" []
-      ; TODO: Investigate why just {:content...} isn't enough to set content type with wrap-json-response
-      ; Probably due to a weird interaction between wrap-json-response and wrap-content-type
-      (GET "/" request (json-response {:content {:type "success" :message "Hi world"}})))))
+      (GET "/" request (response {:type "success" :message "Hi world"})))))
 
 (def handler
   (wrap-defaults
     (routes
       (-> api-routes
-        (json-middleware/wrap-json-body)
-        (json-middleware/wrap-json-response))
+        (wrap-routes json-middleware/wrap-json-body)
+        (wrap-routes json-middleware/wrap-json-response))
       (wrap-defaults
         (-> site-routes
           (wrap-routes hiccup-middleware/wrap-base-url)
