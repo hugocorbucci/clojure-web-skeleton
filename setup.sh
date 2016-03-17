@@ -11,5 +11,4 @@ if [ ! -f ./bin/lein ]; then
   curl --silent "https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein" > bin/lein
 fi
 chmod +x bin/lein
-./bin/lein > /dev/null
-./bin/lein deps
+./bin/lein &> /dev/null

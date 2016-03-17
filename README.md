@@ -1,6 +1,6 @@
 # A Clojure/Compojure/Ring skeleton
 
-This is a very simple small skeleton for a [JVM 1.6+](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html), [Clojure 1.7](https://github.com/clojure/clojure/tree/clojure-1.7.0), [Ring 1.4.0](https://github.com/ring-clojure/ring/tree/1.4.0) and [Compojure 1.4.0](https://github.com/weavejester/compojure/tree/1.4.0) stack.
+This is a very simple small skeleton for a [JVM 1.6+](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html), [Clojure 1.8](https://github.com/clojure/clojure/tree/clojure-1.8.0), [Ring 1.4.0](https://github.com/ring-clojure/ring/tree/1.4.0) and [Compojure 1.5.0](https://github.com/weavejester/compojure/tree/1.5.0) stack.
 
 ### How to use this skeleton
 
@@ -45,8 +45,8 @@ Once you've installed a JVM 1.6+, simply download this code (either via git or [
 ```
 
 This will install curl, leiningen, mongodb and gaffer if they're not available in your system. Then it will start [gaffer](https://github.com/jingweno/gaffer) for development, notably:
-- A webserver on port 5000 or the port assigned by the PORT environment variable
+- A webserver on a port determined by gaffer
 - A mongodb instance looking at `tmp/db/data` on the default mongo db port (27017)
 - A process to watch the test folders and rerun tests upon change
 
-Note this project uses lein-dotenv which will read environment variables or variables specified in .env so you can assign your PORT in there.
+Note this project uses lein-dotenv which will read environment variables or variables specified in .env so you can assign your environment variables in there. That file should NOT be committed to source control.

@@ -53,5 +53,5 @@
       handler))
 
 (defn -main [& [port]] ;; entry point, lein run will pick up and start from here
-  (let [port (Integer. (or port (env :port) 5000))]
-    (run-server app {:port port :join? false})))
+  (let [p (Integer. (or port (env :PORT) 5000))]
+    (run-server app {:port p :join? false})))
