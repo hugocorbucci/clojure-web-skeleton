@@ -3,4 +3,4 @@ set -e
 set -o
 
 ./setup.sh
-./bin/lein ring war
+./bin/lein ring uberjar

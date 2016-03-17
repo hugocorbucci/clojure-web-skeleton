@@ -14,8 +14,9 @@ Push your changes. You're ready to start!
 
 ### Development stack
 
-To build the application into a war file that can be used in an application container such as [jetty](http://www.eclipse.org/jetty/) or [tomcat](http://tomcat.apache.org/), you can either use [Leiningen 2+](https://github.com/technomancy/leiningen) or [gradle 2.4+](http://gradle.org/gradle-download/).
-.
+If you're using [Leiningen 2+](https://github.com/technomancy/leiningen), you can build a standalone jar file or a war file that can be delpoyed to an application container such as [jetty](http://www.eclipse.org/jetty/) or [tomcat](http://tomcat.apache.org/). The default is to generate the standalone jar.
+
+If you prefer [gradle 2.4+](http://gradle.org/gradle-download/), the current config assumes you want a war file. It is possible to generate a standalone jar but it requires changing the build.gradle file.
 
 As a consequence, dependencies have to be added both to the build.graddle and the project.clj files.
 Or pick one and erase the other.
@@ -33,7 +34,7 @@ The resulting war file will be in `build/libs/`.
 
 If you have JVM 1.6+ installed, simply run [`build.sh`](build.sh).
 
-The resulting war file will be in `target/`.
+The resulting (standalone) jar file will be in `target/`. You may also change build.sh to run `lein ring uberwar` instead if you're planning to host your application is a webapp container (like tomcat and jetty). That war will also be in `target/`.
 
 ###### Day to day development
 
