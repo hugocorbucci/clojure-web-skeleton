@@ -15,13 +15,13 @@ fi
 
 OLD_NAME="skeleton"
 if [ ! -z "$2" ]; then
-  OLD_NAME=`echo "$2" | sed -e "s/_/-/"`
+  OLD_NAME=`echo "$2" | sed -e "s/_/-/g"`
 fi
-OLD_FOLDER_NAME=`echo "${OLD_NAME}" | sed -e "s/-/_/"`
+OLD_FOLDER_NAME=`echo "${OLD_NAME}" | sed -e "s/-/_/g"`
 
 
 NEW_NAME=`echo "$1" | sed -e "s/_/-/"`
-NEW_FOLDER_NAME=`echo "${NEW_NAME}" | sed -e "s/-/_/"`
+NEW_FOLDER_NAME=`echo "${NEW_NAME}" | sed -e "s/-/_/g"`
 
 BACKUP_EXTENSION=.project-rename-backup
 
