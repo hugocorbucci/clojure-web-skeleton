@@ -22,7 +22,7 @@
       [ring.middleware.logger "0.5.0"]
       [http-kit "2.1.19"]
       [environ "1.0.2"]
-      [clj-http "3.0.0"]
+      [clj-http "3.0.1"]
       [hiccup "1.0.5"]
       [com.novemberain/monger "3.0.2"]
       [clj-time "0.11.0"]]

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -e
-set -o
 
 ./setup.sh
 (mongod --version &> /dev/null) || ( (brew --version &> /dev/null) && (brew install mongodb > /dev/null) )
