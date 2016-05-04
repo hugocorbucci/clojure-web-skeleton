@@ -24,7 +24,7 @@ repositories {
 
 dependencies {
   compile "org.clojure:clojure:1.8.0"
-  compile "org.clojure:data.zip:0.1.1"
+  compile "org.clojure:data.zip:0.1.2"
   compile "org.clojure:data.xml:0.0.8"
   compile "org.clojure:data.json:0.2.6"
   compile "org.clojure:tools.logging:0.3.1"

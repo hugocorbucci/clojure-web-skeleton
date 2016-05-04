@@ -9,7 +9,7 @@
     :main skeleton.web
     :aot [skeleton.web]
     :dependencies [[org.clojure/clojure "1.8.0"]
-      [org.clojure/data.zip "0.1.1"]
+      [org.clojure/data.zip "0.1.2"]
       [org.clojure/data.xml "0.0.8"]
       [org.clojure/data.json "0.2.6"]
       [org.clojure/tools.logging "0.3.1"]
