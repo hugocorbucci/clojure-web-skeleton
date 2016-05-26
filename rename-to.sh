@@ -26,7 +26,12 @@ NEW_FOLDER_NAME=`echo "${NEW_NAME}" | sed -e "s/-/_/g"`
 BACKUP_EXTENSION=.project-rename-backup
 
 sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" src/clj/${OLD_FOLDER_NAME}/web.clj
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" src/clj/${OLD_FOLDER_NAME}/status.clj
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" src/clj/${OLD_FOLDER_NAME}/hello.clj
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" src/clj/${OLD_FOLDER_NAME}/db/config.clj
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" src/clj/${OLD_FOLDER_NAME}/db/migration.clj
 sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" test/clj/${OLD_FOLDER_NAME}/test_helper.clj
+sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" test/clj/${OLD_FOLDER_NAME}/sample_test.clj
 sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" src/gradle/${OLD_FOLDER_NAME}/listener.clj
 sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" src/gradle/${OLD_FOLDER_NAME}/servlet.clj
 mv src/clj/${OLD_FOLDER_NAME} src/clj/${NEW_FOLDER_NAME}

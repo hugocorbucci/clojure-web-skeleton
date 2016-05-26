@@ -16,7 +16,7 @@ ps xau | grep livereload | grep -v grep | awk '{print $2}' | xargs kill
 APP_NAME='skeleton'
 if [[ ! -f ${MY_DIR}/.env ]]; then
   echo "Setting up initial .env"
-  printf "DATABASE_URL=mongodb://localhost/${APP_NAME}\nDEV=true\n" > ${MY_DIR}/.env
+  printf "MONGO_URL=mongodb://localhost/${APP_NAME}\nDEV=true\n" > ${MY_DIR}/.env
 fi
 
 echo "Starting servers..."

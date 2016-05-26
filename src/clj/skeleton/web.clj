@@ -1,47 +1,32 @@
 (ns skeleton.web
   (:gen-class)
-  (:use org.httpkit.server
-    [hiccup.page :only (html5 include-css include-js)])
+  (:use org.httpkit.server)
   (:require
     [ring.middleware.reload :as reload]
     [compojure.core :refer [defroutes GET PUT POST DELETE ANY context routes wrap-routes]]
     [compojure.route :as route]
-    [clj-time.core :as t]
     [hiccup.middleware :as hiccup-middleware]
     [ring.middleware.defaults :refer [wrap-defaults site-defaults api-defaults]]
     [ring.middleware.json :as json-middleware]
     [ring.middleware.anti-forgery :as anti-forgery]
-    [ring.middleware.multipart-params :as mp]
     [ring.middleware.logger :as logger]
-    [clojure.tools.logging :as log]
     [clansi.core :as clansi]
     [ring.util.response :refer [response redirect]]
-    [clojure.java.io :as io]
     [environ.core :refer [env]]
-    [cheshire.core :refer [parse-string]]
-    [org.httpkit.timer :refer [schedule-task]]
     [optimus.prime :as optimus]
     [optimus.assets :as assets]
     [optimus.optimizations :as optimizations]
     [optimus.strategies :as strategies]
-    [optimus.link :as link]
+    [skeleton.hello :as hello]
+    [skeleton.status :as status]
   )
 )
-
-(def database-url
-  (env :database-url))
 
 (defn in-dev? [] (= "true" (env :dev)))
 
 (defroutes site-routes
-  (GET "/" request
-    (html5
-      {:lang "en"}
-      [:head
-        [:meta{:http-equiv "Content-Type" :content "text/html; charset=UTF-8" :charset "utf-8"}]]
-      [:body {}
-        [:p "Hello World"]
-        (map include-js (link/bundle-paths request ["application.js"]))])))
+  (GET "/" request (hello/render-view request))
+  (GET "/status" request (status/render-view request)))
 
 (defroutes api-routes
   (context "/api" []

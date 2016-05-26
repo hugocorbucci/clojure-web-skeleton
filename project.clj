@@ -25,6 +25,10 @@
       [clj-http "3.1.0"]
       [hiccup "1.0.5"]
       [com.novemberain/monger "3.0.2"]
+      [ragtime "0.6.0"]
+      [org.postgresql/postgresql "9.4.1208"]
+      [clojure.jdbc/clojure.jdbc-c3p0 "0.3.2"]
+      [honeysql "0.6.3"]
       [clj-time "0.11.0"]
       [optimus "0.18.5"]]
     :plugins [[lein-environ "1.0.2"]
@@ -64,4 +68,6 @@
         :env {:development "true" :clj-env "development"}
         :dependencies [[org.clojure/tools.nrepl "0.2.12"]]
         :resource-paths ["resources"]}}
-    :test-refresh {:notify-command ["terminal-notifier" "-title" "Skeleton Tests" "-message"]}))
+    :test-refresh {:notify-command ["terminal-notifier" "-title" "Skeleton Tests" "-message"]}
+    :aliases {"migrate"  ["with-profile" "base" "run" "-m" "skeleton.db.migration/migrate"]
+              "rollback" ["with-profile" "base" "run" "-m" "skeleton.db.migration/rollback"]}))
