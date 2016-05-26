@@ -22,17 +22,13 @@
       [ring.middleware.logger "0.5.0"]
       [http-kit "2.1.19"]
       [environ "1.0.3"]
-      [clj-http "3.0.1"]
+      [clj-http "3.1.0"]
       [hiccup "1.0.5"]
       [com.novemberain/monger "3.0.2"]
-      [clj-time "0.11.0"]]
-    :dev-dependencies [[com.jakemccrary/lein-test-refresh "0.11.0"]
-      [lein-cloverage "1.0.2"]
-      [clj-livereload "0.2.0"]
-      [org.clojure/tools.nrepl "0.2.12"]]
+      [clj-time "0.11.0"]
+      [optimus "0.18.5"]]
     :plugins [[lein-environ "1.0.2"]
-      [lein-ring "0.9.7"]
-      [com.jakemccrary/lein-test-refresh "0.11.0"]]
+      [lein-ring "0.9.7"]]
     :ring
       { :handler skeleton.web/handler
         :uberwar-name ~(str "skeleton-with-dependencies_" version ".war")}
@@ -42,20 +38,27 @@
       :production
       {:env {:production "true" :clj-env "production"}}
       :test
-      { :plugins [[lein-cloverage "1.0.2"]
+      { :plugins [[com.jakemccrary/lein-test-refresh "0.15.0"]
+          [lein-cloverage "1.0.2"]
           [lein-dotenv "RELEASE"]]
         :resource-paths ["resources" "test/resources/"]
-        :dependencies [[pjstadig/humane-test-output "0.8.0"]]
+        :dependencies [[lein-cloverage "1.0.2"]
+          [pjstadig/humane-test-output "0.8.0"]
+          [com.jakemccrary/lein-test-refresh "0.15.0"]]
         :env {:test "true" :clj-env "test"}
         :injections [(require 'pjstadig.humane-test-output)
           (pjstadig.humane-test-output/activate!)]}
       :dev
-      { :plugins [[lein-dotenv "RELEASE"]]
+      { :plugins [[lein-dotenv "RELEASE"] [lein-cooper "1.2.2"]]
         :env {:development "true" :clj-env "development"}
         :resource-paths ["resources"]
-        :dependencies [[clj-livereload "0.2.0"]]
+        :dependencies [[clj-livereload "0.2.0"]
+          [org.clojure/tools.nrepl "0.2.12"]]
         :injections [(require 'clj-livereload.server)
-          (clj-livereload.server/start! {:paths ["resources/public/" "src/clj/skeleton/"] :debug? true})]}
+          (clj-livereload.server/start! {:paths ["resources/public/" "src/clj/skeleton/"] :debug? true})]
+        :cooper {"test"   ["lein" "with-profile" "base,test" "test-refresh"]
+                 "mongo"  ["mongod" "--dbpath" "tmp/db/data"]
+                 "server" ["lein" "ring" "server"]}}
       :repl
       { :plugins [[lein-dotenv "RELEASE"]]
         :env {:development "true" :clj-env "development"}

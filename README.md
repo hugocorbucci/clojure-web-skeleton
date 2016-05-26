@@ -16,7 +16,7 @@ Push your changes. You're ready to start!
 
 If you're using [Leiningen 2+](https://github.com/technomancy/leiningen), you can build a standalone jar file or a war file that can be delpoyed to an application container such as [jetty](http://www.eclipse.org/jetty/) or [tomcat](http://tomcat.apache.org/). The default is to generate the standalone jar.
 
-If you prefer [gradle 2.4+](http://gradle.org/gradle-download/), the current config assumes you want a war file. It is possible to generate a standalone jar but it requires changing the build.gradle file.
+If you prefer [gradle 2.4 to 2.11](http://gradle.org/gradle-download/), the current config assumes you want a war file. It is possible to generate a standalone jar but it requires changing the build.gradle file. Gradle 2.12+ is incompatible with clojureresque 1.7.0 so please avoid.
 
 As a consequence, dependencies have to be added both to the build.graddle and the project.clj files.
 Or pick one and erase the other.

@@ -10,17 +10,18 @@ buildscript {
   }
 }
 
-apply plugin: "clojure"
-clojure.aotCompile = true
-
-apply plugin: "war"
-
 repositories {
   mavenCentral()
   maven {
     url "http://clojars.org/repo/"
   }
 }
+
+
+apply plugin: "clojure"
+clojure.aotCompile = true
+
+apply plugin: "war"
 
 dependencies {
   compile "org.clojure:clojure:1.8.0"
@@ -38,10 +39,11 @@ dependencies {
   compile "ring.middleware.logger:ring.middleware.logger:0.5.0"
   compile "http-kit:http-kit:2.1.19"
   compile "environ:environ:1.0.3"
-  compile "clj-http:clj-http:3.0.1"
+  compile "clj-http:clj-http:3.1.0"
   compile "hiccup:hiccup:1.0.5"
   compile "com.novemberain:monger:3.0.2"
   compile "clj-time:clj-time:0.11.0"
+  compile "optimus:optimus:0.18.5"
 }
 
 sourceSets {
