@@ -43,10 +43,10 @@
       {:env {:production "true" :clj-env "production"}}
       :test
       { :plugins [[com.jakemccrary/lein-test-refresh "0.15.0"]
-          [lein-cloverage "1.0.2"]
+          [lein-cloverage "1.0.6"]
           [lein-dotenv "RELEASE"]]
         :resource-paths ["resources" "test/resources/"]
-        :dependencies [[lein-cloverage "1.0.2"]
+        :dependencies [[lein-cloverage "1.0.6"]
           [pjstadig/humane-test-output "0.8.0"]
           [com.jakemccrary/lein-test-refresh "0.15.0"]]
         :env {:test "true" :clj-env "test"}
