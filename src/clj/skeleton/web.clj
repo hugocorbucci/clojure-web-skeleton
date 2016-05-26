@@ -36,7 +36,9 @@
 (defn get-assets []
   (concat
     (assets/load-bundles "public"
-      {"application.js" ["/js/template.js"]})))
+      {"application.js" ["/js/template.js"]})
+    (assets/load-bundles "public"
+      {"application.css" ["/css/template.css"]})))
 
 (defn wrap-with-logger [handler]
   (let [logging-handler (logger/wrap-with-logger handler)]

@@ -9,7 +9,8 @@
   (page/html5
     {:lang "en"}
     [:head
-      [:meta{:http-equiv "Content-Type" :content "text/html; charset=UTF-8" :charset "utf-8"}]]
+      [:meta{:http-equiv "Content-Type" :content "text/html; charset=UTF-8" :charset "utf-8"}]
+      (map page/include-css (link/bundle-paths request ["application.css"]))]
     [:body {}
       [:p "Hello World"]
       (map page/include-js (link/bundle-paths request ["application.js"]))]))
