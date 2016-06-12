@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+if [[ -z `which curl` ]]; then
+  echo "Please ensure the command line utility curl is installed and try again" && exit 1
+fi
+
 if [[ -z `(uname -a | grep Darwin &> /dev/null) && which brew` ]]; then
   echo "Installing brew..."
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

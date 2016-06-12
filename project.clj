@@ -15,9 +15,9 @@
       [org.clojure/tools.logging "0.3.1"]
       [javax.servlet/javax.servlet-api "3.1.0"]
       [compojure "1.5.0"]
-      [ring/ring-defaults "0.2.0"]
-      [ring/ring-core "1.4.0"]
-      [ring/ring-devel "1.4.0"]
+      [ring/ring-defaults "0.2.1"]
+      [ring/ring-core "1.5.0"]
+      [ring/ring-devel "1.5.0"]
       [ring/ring-json "0.4.0"]
       [ring.middleware.logger "0.5.0"]
       [http-kit "2.1.19"]
@@ -28,11 +28,10 @@
       [ragtime "0.6.0"]
       [org.postgresql/postgresql "9.4.1208"]
       [clojure.jdbc/clojure.jdbc-c3p0 "0.3.2"]
-      [honeysql "0.6.3"]
-      [clj-time "0.11.0"]
+      [honeysql "0.7.0"]
+      [clj-time "0.12.0"]
       [optimus "0.18.5"]]
-    :plugins [[lein-environ "1.0.2"]
-      [lein-ring "0.9.7"]]
+    :plugins [[lein-environ "1.0.2"]]
     :ring
       { :handler skeleton.web/handler
         :uberwar-name ~(str "skeleton-with-dependencies_" version ".war")}
@@ -62,7 +61,7 @@
           (clj-livereload.server/start! {:paths ["resources/public/" "src/clj/skeleton/"] :debug? true})]
         :cooper {"test"   ["lein" "with-profile" "base,test" "test-refresh"]
                  "mongo"  ["mongod" "--dbpath" "tmp/db/data"]
-                 "server" ["lein" "ring" "server"]}}
+                 "server" ["lein" "run"]}}
       :repl
       { :plugins [[lein-dotenv "RELEASE"]]
         :env {:development "true" :clj-env "development"}
