@@ -30,7 +30,7 @@ dependencies {
   compile "org.clojure:data.json:0.2.6"
   compile "org.clojure:tools.logging:0.3.1"
   compile "javax.servlet:javax.servlet-api:3.1.0"
-  compile "compojure:compojure:1.5.0"
+  compile "compojure:compojure:1.5.1"
   compile "ring:ring-defaults:0.2.1"
   compile "ring:ring-servlet:1.5.0"
   compile "ring:ring-core:1.5.0"

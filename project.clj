@@ -14,7 +14,7 @@
       [org.clojure/data.json "0.2.6"]
       [org.clojure/tools.logging "0.3.1"]
       [javax.servlet/javax.servlet-api "3.1.0"]
-      [compojure "1.5.0"]
+      [compojure "1.5.1"]
       [ring/ring-defaults "0.2.1"]
       [ring/ring-core "1.5.0"]
       [ring/ring-devel "1.5.0"]
@@ -41,13 +41,11 @@
       :production
       {:env {:production "true" :clj-env "production"}}
       :test
-      { :plugins [[com.jakemccrary/lein-test-refresh "0.15.0"]
+      { :plugins [[com.jakemccrary/lein-test-refresh "0.16.0"]
           [lein-cloverage "1.0.6"]
           [lein-dotenv "RELEASE"]]
         :resource-paths ["resources" "test/resources/"]
-        :dependencies [[lein-cloverage "1.0.6"]
-          [pjstadig/humane-test-output "0.8.0"]
-          [com.jakemccrary/lein-test-refresh "0.15.0"]]
+        :dependencies [[pjstadig/humane-test-output "0.8.0"]]
         :env {:test "true" :clj-env "test"}
         :injections [(require 'pjstadig.humane-test-output)
           (pjstadig.humane-test-output/activate!)]}
