@@ -20,7 +20,7 @@
       [ring/ring-devel "1.5.0"]
       [ring/ring-json "0.4.0"]
       [ring.middleware.logger "0.5.0"]
-      [http-kit "2.1.19"]
+      [http-kit "2.2.0"]
       [environ "1.0.3"]
       [clj-http "3.1.0"]
       [hiccup "1.0.5"]
