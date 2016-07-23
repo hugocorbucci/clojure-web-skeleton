@@ -1,6 +1,6 @@
 # A Clojure/Compojure/Ring skeleton
 
-This is a very simple small skeleton for a [JVM 1.8+](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html), [Clojure 1.8](https://github.com/clojure/clojure/tree/clojure-1.8.0), [Ring 1.4.0](https://github.com/ring-clojure/ring/tree/1.4.0) and [Compojure 1.5.0](https://github.com/weavejester/compojure/tree/1.5.0) stack.
+This is a very simple small skeleton for a [JVM 1.8+](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html), [Clojure 1.8](https://github.com/clojure/clojure/tree/clojure-1.8.0), [Ring](https://github.com/ring-clojure/ring/) and [Compojure](https://github.com/weavejester/compojure/) stack.
 
 ### How to use this skeleton
 
