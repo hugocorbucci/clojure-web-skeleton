@@ -39,7 +39,7 @@ mv test/clj/${OLD_FOLDER_NAME} test/clj/${NEW_FOLDER_NAME}
 sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" build.gradle
 sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" dev.sh
 sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" Procfile
-sed -i ${BACKUP_EXTENSION} -e "s/\/${OLD_FOLDER_NAME}\//\/${NEW_FOLDER_NAME}\//g" -e "s/${OLD_NAME}/${NEW_NAME}/g" -e "s/${OLD_NAME}/${NEW_NAME_HUMAN}/ig" project.clj
+sed -i ${BACKUP_EXTENSION} -e "s/\/${OLD_FOLDER_NAME}\//\/${NEW_FOLDER_NAME}\//g" -e "s/${OLD_NAME}/${NEW_NAME}/g" -e "s/${OLD_NAME}/${NEW_NAME_HUMAN}/g" project.clj
 sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" settings.gradle
 sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" gradle.properties
 sed -i ${BACKUP_EXTENSION} -e "s/${OLD_NAME}/${NEW_NAME}/g" war/WEB-INF/web.xml
