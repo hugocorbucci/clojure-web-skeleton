@@ -21,7 +21,7 @@
       [ring/ring-json "0.4.0"]
       [ring.middleware.logger "0.5.0"]
       [http-kit "2.2.0"]
-      [environ "1.0.3"]
+      [environ "1.1.0"]
       [clj-http "3.1.0"]
       [hiccup "1.0.5"]
       [com.novemberain/monger "3.0.2"]

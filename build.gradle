@@ -38,7 +38,7 @@ dependencies {
   compile "ring:ring-json:0.4.0"
   compile "ring.middleware.logger:ring.middleware.logger:0.5.0"
   compile "http-kit:http-kit:2.2.0"
-  compile "environ:environ:1.0.3"
+  compile "environ:environ:1.1.0"
   compile "clj-http:clj-http:3.1.0"
   compile "hiccup:hiccup:1.0.5"
   compile "com.novemberain:monger:3.0.2"
