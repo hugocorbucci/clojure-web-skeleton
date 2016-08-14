@@ -28,7 +28,7 @@
       [ragtime "0.6.1"]
       [org.postgresql/postgresql "9.4.1209"]
       [clojure.jdbc/clojure.jdbc-c3p0 "0.3.2"]
-      [honeysql "0.7.0"]
+      [honeysql "0.8.0"]
       [clj-time "0.12.0"]
       [optimus "0.19.0"]]
     :plugins [[lein-environ "1.0.2"]]
