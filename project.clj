@@ -24,7 +24,7 @@
       [environ "1.1.0"]
       [clj-http "3.2.0"]
       [hiccup "1.0.5"]
-      [com.novemberain/monger "3.0.2"]
+      [com.novemberain/monger "3.1.0"]
       [ragtime "0.6.3"]
       [org.postgresql/postgresql "9.4.1210"]
       [clojure.jdbc/clojure.jdbc-c3p0 "0.3.2"]

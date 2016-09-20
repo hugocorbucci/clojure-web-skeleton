@@ -41,7 +41,7 @@ dependencies {
   compile "environ:environ:1.1.0"
   compile "clj-http:clj-http:3.2.0"
   compile "hiccup:hiccup:1.0.5"
-  compile "com.novemberain:monger:3.0.2"
+  compile "com.novemberain:monger:3.1.0"
   compile "ragtime:ragtime:0.6.3"
   compile "org.postgresql:postgresql:9.4.1210"
   compile "clojure.jdbc:clojure.jdbc-c3p0:0.3.2"
