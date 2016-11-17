@@ -26,7 +26,7 @@
       [hiccup "1.0.5"]
       [com.novemberain/monger "3.1.0"]
       [ragtime "0.6.3"]
-      [org.postgresql/postgresql "9.4.1211"]
+      [org.postgresql/postgresql "9.4.1212"]
       [clojure.jdbc/clojure.jdbc-c3p0 "0.3.2"]
       [honeysql "0.8.1"]
       [clj-time "0.12.2"]
