@@ -42,12 +42,12 @@ dependencies {
   compile "clj-http:clj-http:3.7.0"
   compile "hiccup:hiccup:1.0.5"
   compile "com.novemberain:monger:3.1.0"
-  compile "ragtime:ragtime:0.7.1"
+  compile "ragtime:ragtime:0.7.2"
   compile "org.postgresql:postgresql:42.1.4"
   compile "clojure.jdbc:clojure.jdbc-c3p0:0.3.3"
   compile "clj-time:clj-time:0.14.0"
   compile "honeysql:honeysql:0.9.1"
-  compile "optimus:optimus:0.19.3"
+  compile "optimus:optimus:0.20.0"
 }
 
 sourceSets {

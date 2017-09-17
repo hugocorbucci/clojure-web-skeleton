@@ -25,12 +25,12 @@
       [clj-http "3.7.0"]
       [hiccup "1.0.5"]
       [com.novemberain/monger "3.1.0"]
-      [ragtime "0.7.1"]
+      [ragtime "0.7.2"]
       [org.postgresql/postgresql "42.1.4"]
       [clojure.jdbc/clojure.jdbc-c3p0 "0.3.3"]
       [honeysql "0.9.1"]
       [clj-time "0.14.0"]
-      [optimus "0.19.3"]]
+      [optimus "0.20.0"]]
     :plugins [[lein-environ "1.0.2"]]
     :ring
       { :handler skeleton.web/handler
@@ -45,7 +45,7 @@
           [lein-cloverage "1.0.6"]
           [lein-dotenv "RELEASE"]]
         :resource-paths ["resources" "test/resources/"]
-        :dependencies [[pjstadig/humane-test-output "0.8.2"]]
+        :dependencies [[pjstadig/humane-test-output "0.8.3"]]
         :env {:test "true" :clj-env "test"}
         :injections [(require 'pjstadig.humane-test-output)
           (pjstadig.humane-test-output/activate!)]}
