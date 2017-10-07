@@ -47,7 +47,7 @@ dependencies {
   compile "clojure.jdbc:clojure.jdbc-c3p0:0.3.3"
   compile "clj-time:clj-time:0.14.0"
   compile "honeysql:honeysql:0.9.1"
-  compile "optimus:optimus:0.20.0"
+  compile "optimus:optimus:0.20.1"
 }
 
 sourceSets {

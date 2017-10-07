@@ -30,7 +30,7 @@
       [clojure.jdbc/clojure.jdbc-c3p0 "0.3.3"]
       [honeysql "0.9.1"]
       [clj-time "0.14.0"]
-      [optimus "0.20.0"]]
+      [optimus "0.20.1"]]
     :plugins [[lein-environ "1.0.2"]]
     :ring
       { :handler skeleton.web/handler
